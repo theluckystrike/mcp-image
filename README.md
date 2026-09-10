@@ -1,13 +1,45 @@
 # mcp-image
 
+<!-- mirror-seo:start -->
+
+**MCP server for image resizing, conversion, compression and watermarking.** Resize, convert, compress and watermark images, pure JavaScript.
+
+Works with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine, or hosted with no install.
+
+## Install
+
+**Hosted, nothing to install.** Point an MCP client at `https://mcp.zovo.one/mcp/image` over streamable-http and send `Authorization: Bearer <token>`, where the token is a Pro key or a free anonymous one from <https://mcp.zovo.one/mcp/token>.
+
+**Claude Desktop, one click.** Download `image.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it.
+
+**From source.** The mirror is self-contained: every `@theluckystrike/*` dependency is vendored, so a fresh clone builds with no extra setup.
+
+```sh
+git clone https://github.com/theluckystrike/mcp-image.git
+cd mcp-image
+npm install && npm run build
+```
+
+Then point your client at the built entry point:
+
+```json
+{
+  "mcpServers": {
+    "image": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-image/dist/index.js"]
+    }
+  }
+}
+```
+
+> `@theluckystrike/mcp-image` is **not published on npm yet**, so an `npx -y @theluckystrike/mcp-image` command will fail. The three paths above are the working ones and each is exercised by CI.
+
 ![image demo](https://raw.githubusercontent.com/theluckystrike/mcp-servers/main/assets/demo-image.gif)
-
-**One-click install:** download `image.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it in Claude Desktop.
-
-**Hosted endpoint (no install):** `https://mcp.zovo.one/mcp/image` (streamable-http; send `Authorization: Bearer <Pro key or anonymous token from https://mcp.zovo.one/mcp/token>`).
 
 Read-only mirror of [mcp-servers/servers/image](https://github.com/theluckystrike/mcp-servers/tree/main/servers/image). See [MIRROR.md](MIRROR.md).
 
+<!-- mirror-seo:end -->
 
 Say "make these five photos 1200 pixels wide" or "shrink this screenshot and strip the GPS out of it" and it happens, on your machine, in a second. This MCP server does the small image jobs that otherwise send you to a web uploader: resize, convert between PNG, JPEG, BMP, GIF and TIFF, compress with a real before-and-after byte count, crop, thumbnail a folder, watermark with your business name, and drop the EXIF block a phone camera writes into every photo. No upload, no account, no native dependency, no image editor.
 
