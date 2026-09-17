@@ -1,6 +1,6 @@
 {
   "name": "mcp-image",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "MCP server for image resizing, conversion, compression and watermarking. Resize, convert, compress and watermark images, pure JavaScript.",
   "settings": [
     {
